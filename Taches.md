@@ -28,3 +28,10 @@
     - Affichage
       - Formulaire pour choir les produits et la quantite a vendre
     - Code
+
+### Version 2
+- Modifiaction de la page vendre
+  - pour upload-er des images des plats
+
+
+##### PAGE

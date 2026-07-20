@@ -82,4 +82,19 @@
         $sql = "SELECT * FROM produit";
         return get_all_lines($sql);
     }
+
+    function vendre ($produit, $quantite, $prix, $date, $user)
+    {
+        $sql = "INSERT INTO produit_membre(id_produit, id_membre, prix_vente, quantite_dispo, date_dispo)
+            VALUES ($produit, $user, $prix, $quantite, $date)";
+        mysqli_query(dbconnect(), $sql);
+    }
+
+    function get_montant_vente ($user)
+    {
+        $sql = "SELECT SUM(v.quantite*pm.prix_vente) AS montant_total FROM vente v JOIN produit_membre pm
+            ON pm.id_produit_membre=v.id_produit_membre WHERE pm.id_membre='$user'";
+
+        return get_one_line($sql);
+    }
 ?>
