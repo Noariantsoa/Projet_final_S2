@@ -161,6 +161,8 @@
             JOIN produit p ON p.id_produit=pm.id_produit
             WHERE p.nom='$produit'
             GROUP BY m.nom";
+
+            return get_all_lines($sql);
     }
 
 // SELECT sum(v.quantite*pm.prix_vente) AS montant,
