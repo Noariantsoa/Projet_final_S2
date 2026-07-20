@@ -1,6 +1,6 @@
 <?php
 include('functions.php');
-session_start();
+
 $info_produit = get_all_produits();
 ?>
 <!DOCTYPE html>
@@ -11,6 +11,8 @@ $info_produit = get_all_produits();
     <title>Document</title>
 </head>
 <body>
+    <p><a href="vendre.php">Vendre</a></p>
+    <p><a href="modifier.php">Modifier</a></p>
     <h3>Tous les produits que nous vendons :</h3>
     <table border="1" width=800>
         <tr>
@@ -22,11 +24,11 @@ $info_produit = get_all_produits();
 
         <?php foreach ($info_produit as $produit){ ?>
             <tr>
-                <td><?php echo $produit['numero_etu'] ?></td>
+                <td><a href="mes_ventes.php?id_membre=<?php echo $produit['id_membre'] ?>&num_etu=<?php echo $produit['numero_etu'] ?>"><?php echo $produit['numero_etu'] ?></a></td>
                 <td><?php echo $produit['nom'] ?></td>
                 <td><?php echo $produit['nom_produit'] ?></td>
                 <td><?php echo $produit['quantite_dispo'] ?></td>
-                <td><a href="?produit_achat=<?php echo $produit['nom_produit'] ?>">Acheter</a></td>
+                <td><a href="?produit_achat=<?php echo $produit['nom_produit'] ?>&id_produit=<?php echo $produit['id_produit'] ?>&id_mpivarotra=<?php echo $produit['id_membre'] ?>&quantite_initial=<?php echo $produit['quantite_dispo'] ?>&id_produit_membre=<?php echo $produit['id_produit_membre'] ?>">Acheter</a></td>
             </tr>
         <?php } ?>
     </table>
@@ -34,9 +36,21 @@ $info_produit = get_all_produits();
     if( isset ($_GET['produit_achat']) ){ 
         ?>
         <form action="traitement_achat.php" method="get">
+            <input type="hidden" value="<?php echo $_GET['id_produit']?>"  name="id_produit_vendu"></input>
+            <input type="hidden" value="<?php echo $_GET['id_mpivarotra']?>"  name="id_membre"></input>
+            <input type="hidden" value="<?php echo $_GET['quantite_initial']?>"  name="quantite_initial"></input>
+            <input type="hidden" value="<?php echo $_GET['id_produit_membre']?>"  name="id_produit_membre"></input>
             <p>Le produit a acheter : <input type="text" value="<?php echo $_GET['produit_achat']?>" name="produit_acheter" ></input></p>
             <p>Quantites voulu : <input type="number" name="quantite_achat"></p>
+            <p><input type="submit" value="Acheter"></p>
         </form>
-    <?php } ?>
+    <?php } 
+    if (isset($_GET['message']) && $_GET['message'] == 0){
+        echo "Merci pour votre achat";
+    }
+    else if (isset($_GET['message']) && $_GET['message'] == 1){
+        echo "Veuillez verifier la quantite entrer";
+    }
+    ?>
 </body>
 </html>

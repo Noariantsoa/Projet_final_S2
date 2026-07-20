@@ -1,6 +1,7 @@
 <?php
 
 include('functions.php');
+session_start();
 
 $etu = $_GET['etu'];
 $user = get_user_info($etu);
