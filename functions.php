@@ -73,5 +73,4 @@
         $sql = "SELECT * FROM produit";
         return get_all_lines($sql);
     }
-
 ?>
