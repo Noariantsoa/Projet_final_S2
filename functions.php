@@ -97,4 +97,23 @@
 
         return get_one_line($sql);
     }
+
+    function get_categories ()
+    {
+        $sql = "SELECT sum(v.quantite*pm.prix_vente) FROM categorie c
+            JOIN produit p ON p.id_categorie=c.id_categorie
+            JOIN produit_membre pm ON pm.id_produit=p.id_produit
+            JOIN vente v ON v.id_produit_membre=pm.id_produit_membre
+            GROUP BY c.id_categorie";
+
+        return get_all_lines($sql);
+    }
+    
+    function get_propduit_from_category ($categorie)
+    {
+        $sql = "SELECT * FROM produit p JOIN categorie c
+            ON c.id_categorie=p.id_categorie WHERE nom_categorie='$categorie'";
+
+        return get_all_lines($sql);
+    }
 ?>

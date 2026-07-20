@@ -35,3 +35,15 @@
 
 
 ##### PAGE
+  - Statistiques
+    - Par produit
+      - Affichage
+        - tableau des categories et produits
+      - Fonction
+        - 
+      - Code
+
+    - Par membre
+      - Affichage
+      - Fonction
+      - Code
