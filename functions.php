@@ -77,4 +77,10 @@
     }
 
     // function faire_achat ()
+    function get_produits_envente()
+    {
+        $sql = "SELECT * FROM produit";
+        return get_all_lines($sql);
+    }
+
 ?>
