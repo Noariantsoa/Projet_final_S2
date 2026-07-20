@@ -68,6 +68,15 @@
         mysqli_query(dbconnect(), $sql);
     }
 
+    function get_all_produits(){
+        $sql = "SELECT p.nom AS nom_produit, pm.*, m.nom, m.numero_etu from produit p 
+                JOIN produit_membre pm ON p.id_produit LIKE pm.id_produit
+                JOIN membre m ON m.id_membre LIKE pm.id_membre ORDER BY m.numero_etu ASC";
+        $result = get_all_lines($sql);
+        return $result;
+    }
+
+    // function faire_achat ()
     function get_produits_envente()
     {
         $sql = "SELECT * FROM produit";
