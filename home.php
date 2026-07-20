@@ -12,7 +12,8 @@ $info_produit = get_all_produits();
 </head>
 <body>
     <p><a href="vendre.php">Vendre</a></p>
-    <p><a href="modifier.php">Modifier</a></p>
+    <p><a href="modifier.php?choix=modify">Modifier produit</a></p>
+    <p><a href="modifier.php?choix=add">Ajouter produit</a></p>
     <h3>Tous les produits que nous vendons :</h3>
     <table border="1" width=800>
         <tr>
