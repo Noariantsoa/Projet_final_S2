@@ -1,13 +1,15 @@
 ### Version 1
-- Creer la database
+- Creer la database (Noariantsoa)
   - Creer et remplir les tables (membre, categorie, produit, produit_membre, vente)
 
-- Creer la page de login
-  - Le user s'inscrit automatiquement si son ETU n'est pas dans la base
-    - Champ "nom"
+##### PAGE
+  - Login (Diamondra)
+    - Fonctions
+      - Creer le fonction login (verifi si l'etu est dans la database)
+      - Creer la fonction sign_in
+    - Affichage
+      - Formulaire de login
+      - Formulaire d'inscription
+    - Code
+      - conditions
 
-- Creer la page d'accueil
-
-- Creer la page "vendre"
-
-- Creer la page "mes_ventes"

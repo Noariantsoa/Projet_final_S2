@@ -16,6 +16,6 @@ if($check_loging)
 {
     header("Location:home.php");
 } else {
-    header("Location:index.php?error=1&etu='$etu'");
+    header("Location:index.php?error=1&etu=$etu");
 }
 ?>
