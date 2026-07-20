@@ -20,4 +20,11 @@
     -Affichage:
       - boucler dans un tableau
       - bouton pour accheter
-      - bouton pour choisir la quantite 
+      - bouton pour choisir la quantite
+
+  - Vendre (Diamondra)
+    - Function
+      - vendre (rajoute une ligne dans le tableau produit_membre)
+    - Affichage
+      - Formulaire pour choir les produits et la quantite a vendre
+    - Code

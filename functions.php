@@ -67,4 +67,11 @@
         $sql = "INSERT INTO membre(nom, numero_etu) VALUES ('$nom', '$etu')";
         mysqli_query(dbconnect(), $sql);
     }
+
+    function get_produits_envente()
+    {
+        $sql = "SELECT * FROM produit";
+        return get_all_lines($sql);
+    }
+
 ?>
