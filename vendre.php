@@ -15,10 +15,6 @@ $produits = get_produits_envente();
 <body>
     <h2>Vendre des produits</h2>
 
-    <?php if(isset($_GET['success'])) { ?>
-        <h4>Votre produit a ete enregiste!</h4>
-    <?php } ?>
-
     <form action="traitement_vendre.php" method="post">
         <p>Selectioner le produit que vous voulez vendre<select name="produit"></p>
             <?php foreach($produits as $produit) { ?>
