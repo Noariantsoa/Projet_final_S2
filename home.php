@@ -1,6 +1,6 @@
 <?php
 include('functions.php');
-session_start();
+
 $info_produit = get_all_produits();
 ?>
 <!DOCTYPE html>
@@ -12,6 +12,7 @@ $info_produit = get_all_produits();
 </head>
 <body>
     <p><a href="vendre.php">Vendre</a></p>
+    <p><a href="modifier.php">Modifier</a></p>
     <h3>Tous les produits que nous vendons :</h3>
     <table border="1" width=800>
         <tr>
@@ -23,7 +24,7 @@ $info_produit = get_all_produits();
 
         <?php foreach ($info_produit as $produit){ ?>
             <tr>
-                <td><?php echo $produit['numero_etu'] ?></td>
+                <td><a href="mes_ventes.php?id_membre=<?php echo $produit['id_membre'] ?>&num_etu=<?php echo $produit['numero_etu'] ?>"><?php echo $produit['numero_etu'] ?></a></td>
                 <td><?php echo $produit['nom'] ?></td>
                 <td><?php echo $produit['nom_produit'] ?></td>
                 <td><?php echo $produit['quantite_dispo'] ?></td>
