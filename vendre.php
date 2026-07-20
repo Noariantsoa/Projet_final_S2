@@ -14,15 +14,21 @@ $produits = get_produits_envente();
 </head>
 <body>
     <h2>Vendre des produits</h2>
+
+    <?php if(isset($_GET['success'])) { ?>
+        <h4>Votre produit a ete enregiste!</h4>
+    <?php } ?>
+
     <form action="traitement_vendre.php" method="post">
         <p>Selectioner le produit que vous voulez vendre<select name="produit"></p>
             <?php foreach($produits as $produit) { ?>
-                <option value="<?= $produit['nom'] ?>"><?= $produit['nom'] ?></option>
+                <option value="<?= $produit['id_produit'] ?>"><?= $produit['nom'] ?></option>
             <?php } ?>
         </select>
         <p>Quantite: <input type="number" value="1" name="quantite"></p>
         <p>Inserrez votre prix: <input type="number" name="prix"></p>
         <p>Disponible a partir du: <input type="date" name="date"></p>
+        <p>Photo du produit: </p><input type="file" name="photo" >
         <p><input type="submit" value="Vendre"></p>
     </form>
 </body>

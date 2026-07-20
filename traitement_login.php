@@ -1,11 +1,11 @@
 <?php
 
 include('functions.php');
-session_start();
 
 $etu = $_GET['etu'];
 $user = get_user_info($etu);
-// echo $etu;
+$user_id = $user['id_membre'];
+$_SESSION['user'] = $user_id;
 
 if(isset($_GET['nom']))
 {

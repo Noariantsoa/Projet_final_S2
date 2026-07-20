@@ -1,5 +1,6 @@
 <?php
 include('functions.php');
+session_start();
 $info_produit = get_all_produits();
 ?>
 <!DOCTYPE html>
