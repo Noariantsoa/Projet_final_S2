@@ -1,3 +1,12 @@
+<?php
+
+if(isset($_GET['etu']))
+{
+    $etu = $_GET['etu'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +25,7 @@
 
     <?php if(isset($_GET['error'])) { ?>
         <form action="traitement_login.php" method="get">
-            <p>Saisir votre ETU<input type="text" value="" name="etu"></p>
+            <p>Saisir votre ETU<input type="text" value="<?= $etu ?>" name="etu"></p>
             <p>Saisir votre nom<input type="text" name="nom"></p>
             <p><input type="submit" value="S'inscrire"></p>
         </form>

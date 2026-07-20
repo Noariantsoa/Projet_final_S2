@@ -1,5 +1,5 @@
 ### Version 1
-- Creer la database
+- Creer la database (Noariantsoa)
   - Creer et remplir les tables (membre, categorie, produit, produit_membre, vente)
 
 
