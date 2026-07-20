@@ -3,8 +3,18 @@
   - Creer et remplir les tables (membre, categorie, produit, produit_membre, vente)
 
 
-##### PAGE 
-  - Acceuil
+##### PAGE
+  - Login (Diamondra)
+      - Fonctions
+        - Creer le fonction login (verifi si l'etu est dans la database)
+        - Creer la fonction sign_in
+      - Affichage
+        - Formulaire de login
+        - Formulaire d'inscription
+      - Code
+        - conditions
+
+  - Acceuil (Noariantsoa)
     - Function:
       -maka tous les produits de chaque etudiant
     -Affichage:
