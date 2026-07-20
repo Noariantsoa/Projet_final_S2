@@ -14,13 +14,18 @@
       - Code
         - conditions
 
-  - Acceuil (Noariantsoa)
+  - Home (Noariantsoa)
     - Function:
-      -maka tous les produits de chaque etudiant
+      -get_all_produits : maka tous les produits de chaque etudiant
+      -mividy : manala ny quantite de produit (update) ao amin'ny produit_membre, insert les historiques de vente dans la table vente
     -Affichage:
       - boucler dans un tableau
-      - bouton pour accheter
+      - bouton pour acheter
       - bouton pour choisir la quantite
+    -Page non visible
+      -traitement_achat.php :
+        -miantso fonction mividy
+        -redirect vers home.php
 
   - Vendre (Diamondra)
     - Function

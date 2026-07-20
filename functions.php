@@ -69,7 +69,7 @@
     }
 
     function get_all_produits(){
-        $sql = "SELECT p.nom AS nom_produit, pm.*, m.nom, m.numero_etu from produit p 
+        $sql = "SELECT p.nom AS nom_produit,p.id_produit, pm.*,m.id_membre, m.nom, m.numero_etu from produit p 
                 JOIN produit_membre pm ON p.id_produit LIKE pm.id_produit
                 JOIN membre m ON m.id_membre LIKE pm.id_membre ORDER BY m.numero_etu ASC";
         $result = get_all_lines($sql);
@@ -81,6 +81,38 @@
     {
         $sql = "SELECT * FROM produit";
         return get_all_lines($sql);
+    }
+
+    // Exécute une requête qui ne renvoie pas de résultat (INSERT, UPDATE, DELETE)
+    function execute_query($sql)
+    {
+        $req = mysqli_query(dbconnect(), $sql);
+        if (!$req) {
+            die('Erreur SQL : ' . mysqli_error(dbconnect()));
+        }
+        return $req;
+    }
+
+    function mividy($id_produit, $quantite, $quantite_initial, $id_mpivarotra, $id_produit_membre){
+        $conn = dbconnect();
+        if ($quantite < 0){
+            // echo "Veuillez saisir une quantie positive";
+            return 1;
+        }
+        else if ($quantite > $quantite_initial){
+            // echo "la quantite saisi est trop grande veuillez a la diminuer";
+            return 1;
+        }
+        else if ($quantite_initial >= $quantite){
+        $sql_manala = "UPDATE produit_membre SET quantite_dispo = $quantite_initial-$quantite WHERE id_produit LIKE $id_produit AND id_membre LIKE $id_mpivarotra";
+        execute_query($sql_manala);
+        $sql_insert = "INSERT INTO vente (date_vente,heure,id_produit_membre,quantite) values (CURDATE(),CURTIME(),$id_produit_membre,$quantite)";
+        execute_query($sql_insert);
+    
+        // echo "Merci pour votre achat";
+        return 0;
+        }
+        
     }
 
 ?>
