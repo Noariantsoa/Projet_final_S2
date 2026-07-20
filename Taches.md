@@ -47,3 +47,5 @@
     -fonction :
       - fonction update table pour ajouter les modifications
       - fonction insert dans la table pour ajouter
+    -traitement :
+      -appelle les fonction de modification et redirect vers home.php

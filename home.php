@@ -12,7 +12,7 @@ $info_produit = get_all_produits();
 </head>
 <body>
     <p><a href="vendre.php">Vendre</a></p>
-    <p><a href="modifier.php?choix=modify">Modifier produit</a></p>
+    <!-- <p><a href="modifier.php?choix=modify">Modifier produit</a></p> -->
     <p><a href="modifier.php?choix=add">Ajouter produit</a></p>
     <h3>Tous les produits que nous vendons :</h3>
     <table border="1" width=800>
@@ -27,12 +27,13 @@ $info_produit = get_all_produits();
             <tr>
                 <td><a href="mes_ventes.php?id_membre=<?php echo $produit['id_membre'] ?>&num_etu=<?php echo $produit['numero_etu'] ?>"><?php echo $produit['numero_etu'] ?></a></td>
                 <td><?php echo $produit['nom'] ?></td>
-                <td><?php echo $produit['nom_produit'] ?></td>
+                <td><a href="modifier.php?choix=modify&id=<?php echo $produit['id_produit'] ?>"><?php echo $produit['nom_produit'] ?></a></td>
                 <td><?php echo $produit['quantite_dispo'] ?></td>
                 <td><a href="?produit_achat=<?php echo $produit['nom_produit'] ?>&id_produit=<?php echo $produit['id_produit'] ?>&id_mpivarotra=<?php echo $produit['id_membre'] ?>&quantite_initial=<?php echo $produit['quantite_dispo'] ?>&id_produit_membre=<?php echo $produit['id_produit_membre'] ?>">Acheter</a></td>
             </tr>
         <?php } ?>
     </table>
+    <p>(cliquer sur le lien du produit pour le modifier)</p>
     <?php 
     if( isset ($_GET['produit_achat']) ){ 
         ?>
