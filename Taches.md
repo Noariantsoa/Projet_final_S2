@@ -40,6 +40,18 @@
 
 
 ##### PAGE
+  - Statistiques
+    - Par produit (Diamondra)
+      - Affichage
+        - tableau des categories et produits
+  
+    - Par membre
+      - Affichage
+        - Tableau des membres et leurs ventes
+    - Fonction
+      - Creer la fonction get_montant_categories
+
+
   - Modifier ou ajouter produit (modifier.php)   (4705)
     - Affichage:
       -creation de formulaire pour les tables a modifier
