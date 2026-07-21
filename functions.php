@@ -196,16 +196,16 @@
             return get_all_lines($sql);
     }
 
-    function verif_and_upload ($file_name)
+    function verif_and_upload ()
     {
         $uploadDir = __DIR__ . '/uploads/'; // indication d'emplacement des fichiers
         $maxSize = 1 * 1024 * 1024; // environ 1Mo ???
         $allowedMineTypes = ['image/jpeg', 'image/png', 'application/pdf']; // tableau des types autorises
 
         // vrifie si le formulaire a ete envoyer (method POST) et si le fichier existe
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES[$file_name]))
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['$photo']))
         {
-            $file = $_FILES[$file_name];
+            $file = $_FILES['photo'];
 
             // verifie si le telechargement c'est bien passe
             // si oui ==> UPLOAD_ERR_OK 

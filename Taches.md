@@ -62,6 +62,12 @@
     -traitement :
       -appelle les fonction de modification et redirect vers home.php
 
+  - Modifier la page vendre (4932)
+    - Affichage
+      - ajouter un input pour choisir une image
+    - Fonction
+      - creer la fonction upload
+
 
 ### CSS  (4705)
 - creation du fichier style.css
