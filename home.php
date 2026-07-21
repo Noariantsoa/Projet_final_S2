@@ -2,6 +2,8 @@
 include('functions.php');
 
 $info_produit = get_all_produits();
+$noms_produits= get_produits_envente();
+$noms_categories = get_all_categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +24,20 @@ $info_produit = get_all_produits();
     <div class=container>
     
     <h3>Tous les produits que nous vendons :</h3>
-    <a href="#?message='filtrer'" class="btn">Filtrer</a>
+    <form action="" method="get">
+    <p><label>Trier par </label><select name="trie_produit" class="form-control"></p>
+            <?php foreach($noms_produits as $produit) { ?>
+                <option value="<?= $produit['id_produit'] ?>"><?= $produit['nom'] ?></option>
+            <?php } ?>
+        </select>
+    </form>
+    <form action="" method="get">
+    <p><label>Trier par </label><select name="trie_categorie" class="form-control"></p>
+            <?php foreach($noms_categories as $categorie) { ?>
+                <option value="<?= $categorie['id_produit'] ?>"><?= $categorie['nom_categorie'] ?></option>
+            <?php } ?>
+        </select>
+    </form>
     <p>
     <?php if (isset($_GET['message'])) { ?>
     <form action=""></form>    

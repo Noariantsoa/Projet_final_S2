@@ -67,6 +67,8 @@
       - ajouter un input pour choisir une image
     - Fonction
       - creer la fonction upload
+  
+  - Filtrer par categorie (4705)
 
 
 ### CSS  (4705)
