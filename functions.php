@@ -196,4 +196,12 @@
             return get_all_lines($sql);
     }
 
+
+    function get_all_categories(){
+        $sql ="SELECT * FROM categorie";
+        return get_all_lines($sql);
+    }
+
+    // function filtre_categorie()
+
 ?>

@@ -62,6 +62,9 @@
     -traitement :
       -appelle les fonction de modification et redirect vers home.php
 
+  
+  - Filtrer par categorie (4705)
+
 
 ### CSS  (4705)
 - creation du fichier style.css
