@@ -40,8 +40,8 @@
 
 
 ##### PAGE
-  - Statistiques
-    - Par produit (Diamondra)
+  - Statistiques (4932)
+    - Par produit 
       - Affichage
         - tableau des categories et produits
   
@@ -61,3 +61,9 @@
       - fonction insert dans la table pour ajouter
     -traitement :
       -appelle les fonction de modification et redirect vers home.php
+
+
+### CSS  (4705)
+- creation du fichier style.css
+- mettre le lien css dans toutes les pages visibles
+- ajout des div et class necessaire dans chaque page

@@ -12,10 +12,12 @@ $produits = get_montant_produit($categorie);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h2>Les ventes par produit</h2>
-    <table border="1">
+    <table class="table" border="1">
         <tr>
             <th>Produits</th>
             <th>Montant</th>
@@ -27,5 +29,6 @@ $produits = get_montant_produit($categorie);
             </tr>
         <?php } ?>
     </table>
+    </div>
 </body>
 </html>

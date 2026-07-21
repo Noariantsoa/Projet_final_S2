@@ -11,10 +11,12 @@ $montant_categories = get_montant_categories();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h2>Les ventes par categorie</h2>
-    <table border="1">
+    <table class="table" border="1">
         <tr>
             <th>Categotie</th>
             <th>Montant</th>
@@ -27,5 +29,6 @@ $montant_categories = get_montant_categories();
             </tr>
         <?php } ?>
     </table>
+    </div>
 </body>
 </html>

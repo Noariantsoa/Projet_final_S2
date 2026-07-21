@@ -11,21 +11,25 @@ $produits = get_produits_envente();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h2>Vendre des produits</h2>
-
+    <div class="card">
     <form action="traitement_vendre.php" method="post">
-        <p>Selectioner le produit que vous voulez vendre<select name="produit"></p>
+        <p><label>Selectioner le produit que vous voulez vendre</label><select name="produit" class="form-control"></p>
             <?php foreach($produits as $produit) { ?>
                 <option value="<?= $produit['id_produit'] ?>"><?= $produit['nom'] ?></option>
             <?php } ?>
         </select>
-        <p>Quantite: <input type="number" value="1" name="quantite"></p>
-        <p>Inserrez votre prix: <input type="number" name="prix"></p>
-        <p>Disponible a partir du: <input type="date" name="date"></p>
-        <p>Photo du produit: </p><input type="file" name="photo" >
-        <p><input type="submit" value="Vendre"></p>
+        <p><label>Quantite: </label><input type="number" value="1" class="form-control" name="quantite"></p>
+        <p><label>Inserrez votre prix: </label><input type="number" class="form-control" name="prix"></p>
+        <p><label>Disponible a partir du: </label><input type="date" class="form-control" name="date"></p>
+        <p><label>Photo du produit: </label></p><input type="file" name="photo" class="form-control">
+        <p><input type="submit" class="btn" value="Vendre"></p>
     </form>
+    </div>
+    </div>
 </body>
 </html>
