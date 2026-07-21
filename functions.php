@@ -196,4 +196,57 @@
             return get_all_lines($sql);
     }
 
+    function verif_and_upload ($file_name)
+    {
+        $uploadDir = __DIR__ . '/uploads/'; // indication d'emplacement des fichiers
+        $maxSize = 1 * 1024 * 1024; // environ 1Mo ???
+        $allowedMineTypes = ['image/jpeg', 'image/png', 'application/pdf']; // tableau des types autorises
+
+        // vrifie si le formulaire a ete envoyer (method POST) et si le fichier existe
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES[$file_name]))
+        {
+            $file = $_FILES[$file_name];
+
+            // verifie si le telechargement c'est bien passe
+            // si oui ==> UPLOAD_ERR_OK 
+            if($file['error'] !== UPLOAD_ERR_OK)
+            {
+                die('Error during upload : ' . $file['error']);
+            }
+
+            // si la taille du fichier > la taille autorisee
+            if($file['size'] > $maxSize)
+            {
+                die ('Le fichier est trop grand');
+            }
+
+            $finfo = finfo_open(FILEINFO_MIME_TYPE); // ouvre finfo ("outil de verification du vrai type d'un fichier")
+            $mime = finfo_file($finfo, $file['tmp_name']); // verifie le vrai type du fichier
+            finfo_close($finfo); // ferme finfo
+
+            // verifie si le type du fichier est dans le tableau des types autorises
+            if (!in_array($mime, $allowedMineTypes))
+            {
+                die('Type de fichier non autorise : ' . $mime);
+            }
+
+            $originalName = pathinfo($file['name'], PATHINFO_FILENAME); // lit le nom du fichier (ex: photo.jpg ==> photo)
+            $extension = pathinfo($file['name'], PATHINFO_EXTENSION); // lit l'extension du fichier (ex: photo.jpg ==> jpg)
+            $newName = $originalName . '_' . uniqid() . '.' . $extension; // cree un nom unique
+
+            // si le fichier a bien ete deplace
+            if (move_uploaded_file($file['tmp_name'], $uploadDir . $newName))
+            {
+                echo "Fichier upload avec succes : " . $newName;
+            } else {
+                echo "Echec du deplacement du fichier";
+            }
+        }
+        
+        // si le formulaire n'est pas envoye oule fichier n'existe pas
+        else {
+            echo "Aucun fichier recu";
+        }
+    }
+
 ?>
