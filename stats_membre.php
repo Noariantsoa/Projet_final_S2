@@ -2,8 +2,8 @@
 include("functions.php");
 
 $produit = $_GET['produit'];
-echo $produit;
 // $montants = get_montant_membres($produit);
+$stats = get_montant_membres($produit);
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,17 @@ echo $produit;
 </head>
 <body>
     <h2>Les ventes par membres</h2>
-
+    <table border="1">
+        <tr>
+            <th>Membre</th>
+            <th>Montant</th>
+        </tr>
+        <?php foreach($stats as $stat) { ?>
+            <tr>
+                <td><?= $stat['nom'] ?></td>
+                <td><?= $stat['montant'] ?> Ar</td>
+            </tr>
+        <?php } ?>
+    </table>
 </body>
 </html>

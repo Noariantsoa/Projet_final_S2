@@ -1,7 +1,8 @@
 <?php
 include("functions.php");
 
-$produits = get_montant_categories("produit", "nom");
+$categorie = $_GET['categorie'];
+$produits = get_montant_produit($categorie);
 
 ?>
 
@@ -14,6 +15,17 @@ $produits = get_montant_categories("produit", "nom");
 </head>
 <body>
     <h2>Les ventes par produit</h2>
-    
+    <table border="1">
+        <tr>
+            <th>Produits</th>
+            <th>Montant</th>
+        </tr>
+        <?php foreach($produits as $produit) { ?>
+            <tr>
+                <td><a href="stats_membre.php?produit=<?= $produit['id'] ?>"><?= $produit['produit'] ?></a></td>
+                <td><?= $produit['montant'] ?> Ar</td>
+            </tr>
+        <?php } ?>
+    </table>
 </body>
 </html>
