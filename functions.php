@@ -160,21 +160,22 @@
         execute_query($sql);
     }
 
-        function get_montant_categories($colone, $nom)
+        function get_montant_categories()
     {
         $sql = "SELECT sum(v.quantite*pm.prix_vente) AS montant,
-        c.$nom AS sujet, c.id_$colone AS id_sujet
-            FROM $colone c JOIN produit p ON p.id_$colone=c.id_$colone
+        c.nom_categorie AS categorie, c.id_categorie AS id_categorie
+            FROM categorie c JOIN produit p ON p.id_categorie=c.id_categorie
             JOIN produit_membre pm ON pm.id_produit=p.id_produit
             JOIN vente v ON v.id_produit_membre=pm.id_produit_membre
-            GROUP BY c.id_$colone";
+            GROUP BY c.id_categorie";
 
         return get_all_lines($sql);
     }
 
     function get_montant_produit($categorie)
     {
-        $sql = "SELECT sum(v.quantite*pm.prix_vente) AS montant, p.nom AS produit FROM produit_membre pm
+        $sql = "SELECT sum(v.quantite*pm.prix_vente) AS montant,
+            p.nom AS produit, p.id_produit AS id FROM produit_membre pm
             JOIN membre m ON m.id_membre=pm.id_membre
             JOIN vente v ON v.id_produit_membre=pm.id_produit_membre
             JOIN produit p ON p.id_produit=pm.id_produit
@@ -189,15 +190,10 @@
             JOIN membre m ON m.id_membre=pm.id_membre
             JOIN vente v ON v.id_produit_membre=pm.id_produit_membre
             JOIN produit p ON p.id_produit=pm.id_produit
-            WHERE p.nom='$produit'
+            WHERE pm.id_produit='$produit'
             GROUP BY m.nom";
-    }
 
-// SELECT sum(v.quantite*pm.prix_vente) AS montant,
-//         c.$nom AS sujet, c.id_$colone AS id_sujet
-//             FROM $colone c JOIN produit p ON p.id_$colone=c.id_$colone
-//             JOIN produit_membre pm ON pm.id_produit=p.id_produit
-//             JOIN vente v ON v.id_produit_membre=pm.id_produit_membre
-//             GROUP BY c.id_$colone    
+            return get_all_lines($sql);
+    }
 
 ?>

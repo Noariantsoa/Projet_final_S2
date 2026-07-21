@@ -1,7 +1,7 @@
 <?php
 include("functions.php");
 
-$montant_categories = get_montant_categories("categorie", "nom_categorie");
+$montant_categories = get_montant_categories();
 
 ?>
 
@@ -22,7 +22,7 @@ $montant_categories = get_montant_categories("categorie", "nom_categorie");
 
         <?php foreach($montant_categories as $montant) { ?>
             <tr>
-                <td><a href="stats_produit.php?categorie=<?= $montant['id_sujet']; ?>"><?= $montant['sujet']; ?></a></td>
+                <td><a href="stats_produit.php?categorie=<?= $montant['id_categorie']; ?>"><?= $montant['categorie']; ?></a></td>
                 <td><?= $montant['montant']; ?> Ar</td>
             </tr>
         <?php } ?>
