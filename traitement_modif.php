@@ -7,7 +7,7 @@ if (isset($_GET['id_produit']) && isset($_GET['new_name']) && isset($_GET['new_c
     $new_prix = $_GET['new_prix'];
     $id_produit = $_GET['id_produit'];
     modif_produit($id_produit, $new_name, $new_categorie, $new_prix);
-    // header("Location:home.php");
+    header("Location:home.php");
 }
 
 if (isset($_GET['new_name']) && isset($_GET['new_categorie']) && isset($_GET['new_prix'])){
@@ -16,7 +16,7 @@ if (isset($_GET['new_name']) && isset($_GET['new_categorie']) && isset($_GET['ne
     $new_prix = $_GET['new_prix'];
     $id_produit = $_GET['id_produit'];
     ajout_produit($new_name, $new_categorie, $new_prix);
-    // header("Location:home.php");
+    header("Location:home.php");
 }
 
 ?>

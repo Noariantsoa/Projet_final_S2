@@ -12,10 +12,12 @@ $stats = get_montant_membres($produit);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
     <h2>Les ventes par membres</h2>
-    <table border="1">
+    <table border="1" class="table">
         <tr>
             <th>Membre</th>
             <th>Montant</th>
@@ -27,5 +29,6 @@ $stats = get_montant_membres($produit);
             </tr>
         <?php } ?>
     </table>
+    </div>
 </body>
 </html>

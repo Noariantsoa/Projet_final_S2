@@ -13,23 +13,27 @@ if(isset($_GET['etu']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Connectez vous</h2>
+    <div class="container">
+    <div class="card">
+    <h2>Connectez-vous</h2>
     <?php if(!isset($_GET['error'])) { ?>
         <form action="traitement_login.php" method="get">
-            <p>Saisir votre ETU<input type="text" value="00xxxx" name="etu"></p>
-            <p><input type="submit" value="Se connecter"></p>
+            <label>Saisir votre ETU <input type="text" class="form-control" value="00xxxx" name="etu"></label>
+            <p><input type="submit" class="btn" value="Se connecter"></p>
         </form>
     <?php } ?>
 
     <?php if(isset($_GET['error'])) { ?>
         <form action="traitement_login.php" method="get">
-            <p>Saisir votre ETU<input type="text" value="<?= $etu ?>" name="etu"></p>
-            <p>Saisir votre nom<input type="text" name="nom"></p>
-            <p><input type="submit" value="S'inscrire"></p>
+            <label>Saisir votre ETU <input type="text" class="form-control" value="<?= $etu ?>" name="etu"></label>
+            <p><label>Saisir votre nom </label><input type="text" class="form-control" name="nom"></p>
+            <p><input type="submit" class="btn" value="S'inscrire"></p>
         </form>
     <?php } ?>
-
+    </div>
+    </div>
 </body>
 </html>

@@ -133,25 +133,25 @@
 
     function modif_produit($id_produit, $new_nom, $new_categorie, $new_prix){
         $champs = [];
-
+    
         if ($new_nom != null){
-            $champs[]= "nom = '$new_nom'";
+            $champs[] = "nom = '$new_nom'";
         }
         if ($new_categorie != null){
-            $champs[]= "id_categorie = $new_categorie";
+            $champs[] = "id_categorie = $new_categorie";
         }
-        if ($new_prix!= null){
-            $champs= "prix_reference = $new_prix";
+        if ($new_prix != null){
+            $champs[] = "prix_reference = $new_prix";
         }
-
+    
         if (empty($champs)) {
             echo "aucune modification effectuer";
             return 0;
         }
-
+    
         $sql = "UPDATE produit SET ". implode(", ", $champs);
-        $sql .= "WHERE id_produit = $id_produit";
-        // echo $sql;
+        $sql .= " WHERE id_produit = $id_produit";  
+        echo $sql;
         execute_query($sql);
     }
 
